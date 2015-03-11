@@ -3,7 +3,7 @@
  * Plugin Name: WP Better Blue Letter Bible
  * Plugin URI:  http://wordpress.org/plugins
  * Description: A more robust version  of the Awesome Blue Letter Bible
- * Version:     0.1.0
+ * Version:     0.1.1
  * Author:      Jude Rosario
  * Author URI:  
  * License:     GPLv2+
