@@ -309,5 +309,18 @@ If you have found this plugin to be an asset to your site, please consider how y
 <?php
 }
 
+// Add the options page to the menu
+function BLB_ScriptTaggerAddMenu()
+{
+	add_options_page('BLB ScriptTagger', 'BLB ScriptTagger', 'manage_options', __FILE__, 'BLB_ScriptTaggerAdminOptions');
+}
+
+add_action('admin_menu', 'BLB_ScriptTaggerAddMenu');
+
+register_activation_hook(__FILE__, 'BLB_ScriptTaggerSetOptions');
+register_deactivation_hook(__FILE__, 'BLB_ScriptTaggerUnsetOptions');
+
+// Run when the footer is generated
+add_action('wp_footer', 'BLB_ScriptTaggerFooter');
 
 // Wireup shortcodes
