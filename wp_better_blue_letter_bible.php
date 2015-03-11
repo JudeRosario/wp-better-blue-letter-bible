@@ -97,6 +97,26 @@ function BLB_ScriptTaggerFooter($unused)
 }
 
 
+// Register the user preferences when the plugin is enabled
+function BLB_ScriptTaggerSetOptions()
+{
+	add_option('blb_Translation', 'NKJV', 'Which Bible translation to use');
+	add_option('blb_HyperLinks', 'all', 'Replace existing hyperlinks');
+	add_option('blb_HideTanslationAbbrev', 'false', 'Show/Hide alterante translation abbreviation.');
+	add_option('blb_TargetNewWindow', 'false', 'Target links to a new window?');
+	add_option('blb_Style', 'par', 'Scripture reference format.');
+}
+
+// Remove the user preferences when the plugin is disabled
+function BLB_ScriptTaggerUnsetOptions()
+{
+	delete_option('blb_Translation');
+	delete_option('blb_HyperLinks');
+	delete_option('blb_HideTanslationAbbrev');
+	delete_option('blb_TargetNewWindow');
+	delete_option('blb_Style');
+}
+
 
 
 // Wireup shortcodes
