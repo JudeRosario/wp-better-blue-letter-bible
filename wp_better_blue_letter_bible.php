@@ -75,4 +75,28 @@ add_action( 'init', 'wp_bblb_init' );
 
 // Wireup filters
 
+function BLB_ScriptTaggerFooter($unused)
+{
+	$blb_Translation = get_option('blb_Translation');
+	$blb_HyperLinks = get_option('blb_HyperLinks');
+	$blb_HideTanslationAbbrev = get_option('blb_HideTanslationAbbrev');
+	$blb_TargetNewWindow = get_option('blb_TargetNewWindow');
+	$blb_Style = get_option('blb_Style');
+
+	// Generate the script code to be printed on the page
+	?>
+	<script src="http://www.blb.org/scripts/blbToolTip/BLB_ScriptTagger-min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		 BLB.Tagger.Translation = '<?php echo $blb_Translation;?>';
+		 BLB.Tagger.HyperLinks = '<?php echo $blb_HyperLinks;?>';  // 'all', 'none', 'hover'
+		 BLB.Tagger.HideTanslationAbbrev = <?php echo $blb_HideTanslationAbbrev;?>;
+		 BLB.Tagger.TargetNewWindow = <?php echo $blb_TargetNewWindow;?>;
+		 BLB.Tagger.Style = '<?php echo $blb_Style;?>';  // 'line' or 'par'
+	</script>
+<?php
+}
+
+
+
+
 // Wireup shortcodes
